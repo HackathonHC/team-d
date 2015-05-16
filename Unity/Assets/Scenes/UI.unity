@@ -153,7 +153,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 512112595}
   m_RootOrder: 3
---- !u!43 &444640842
+--- !u!43 &413256342
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -925,7 +925,7 @@ Prefab:
     - target: {fileID: 3300000, guid: c38b54f6e28214144b8bee2e50d706d4, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 444640842}
+      objectReference: {fileID: 413256342}
     - target: {fileID: 100000, guid: c38b54f6e28214144b8bee2e50d706d4, type: 2}
       propertyPath: m_Name
       value: AnimCamera
