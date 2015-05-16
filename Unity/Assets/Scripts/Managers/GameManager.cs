@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 	private void Init()
 	{
 		PlayerManager.Instance.Init();
+		UnitManager.Instance.Init();
 		AnimationManager.Instance.Init();
 		PanelManager.Instance.Init();
 		CursolManager.Instance.Init();
