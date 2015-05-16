@@ -16,21 +16,53 @@ public class PanelManager
 	private int PANEL_SIZE = 22;
 	private string PANEL_PREFAB_PATH = "Prefabs/Panel";
 	private UI2DSprite bgSprite;
-	private List<Panel> panelList;
-	private GameObject panelContainerObject;
 	private GameObject panelPrefab;
+	private Dictionary<int, PlayerStage> playerStageMap;
+
+	public class PlayerStage
+	{
+		public Player player;
+		public List<Panel> panelList;
+		public GameObject panelContainerObject;
+	}
 
 	public void Init()
 	{
 		this.bgSprite = GameObject.Find("UIRoot/L1").transform.Find("Bg").GetComponent<UI2DSprite>();
 		this.bgSprite.sprite2D = Resources.Load<Sprite>("Sprites/Bg/bg1");
 		this.bgSprite.transform.localRotation = new Quaternion(0f, 0f, 0f, 0f); // TODO FIX
+		this.playerStageMap = new Dictionary<int, PlayerStage>();
+
+		// Create Player's Stage
+		foreach (var player in PlayerManager.Instance.PlayerList)
+		{
+			CreateStage(player);
+		}
+	}
+
+	public PlayerStage FindPlayerStage(int playerId)
+	{
+		return this.playerStageMap[playerId];
+	}
+
+	private Vector3 GetPositionByIndex(int index)
+	{
+		return StageData.PANEL_POSITION_MAP[index];
+	}
+
+	private void CreateStage(Player player)
+	{
+		var id = player.stageId;
+		var stageType = (StageData.StageType)id;
 
 		// Load Data
-		var panelCountMap = StageData.GetData(StageData.StageType.Balance);
+		var panelCountMap = StageData.GetData(stageType);
 
+		// Create Player's Stage
+		var playerStage = new PlayerStage();
+		
 		// Create Panel Model
-		this.panelList = new List<Panel>(PANEL_SIZE);
+		playerStage.panelList = new List<Panel>(PANEL_SIZE);
 		foreach (var panelCountData in panelCountMap)
 		{
 			var type = panelCountData.Key;
@@ -39,28 +71,32 @@ public class PanelManager
 			{
 				var panel = new Panel(type);
 				// Reference
-				this.panelList.Add(panel);
+				playerStage.panelList.Add(panel);
 			}
 		}
-
+		
 		// Shuffle
-		var shuffleList = this.panelList.ToArray().Shuffle();
-		this.panelList = new List<Panel>(shuffleList);
-
+		var shuffleList = playerStage.panelList.ToArray().Shuffle();
+		playerStage.panelList = new List<Panel>(shuffleList);
+		
 		// Create Panel Container
 		var l1Object = GameObject.Find("L1");
-		this.panelContainerObject = new GameObject();
-		this.panelContainerObject.transform.SetParent(l1Object.transform);
-		this.panelContainerObject.layer = LayerMask.NameToLayer("2DUI");
-		this.panelContainerObject.name = "PanelContainer";
-		this.panelContainerObject.transform.localScale = Vector3.one;
+		playerStage.panelContainerObject = new GameObject();
+		playerStage.panelContainerObject.transform.SetParent(l1Object.transform);
+		playerStage.panelContainerObject.layer = LayerMask.NameToLayer("2DUI");
+		playerStage.panelContainerObject.name = string.Format("PanelContainer{0}", player.playerId);
+		playerStage.panelContainerObject.transform.localScale = Vector3.one;
 
+		// Add UiPanel for Container
+		var uiPanel = playerStage.panelContainerObject.AddComponent<UIPanel>();
+		uiPanel.depth = 1; // TODO: Fix
+		
 		// Set Scene
 		this.panelPrefab = Resources.Load<GameObject>(PANEL_PREFAB_PATH);
-		for(var i = 0; i < this.panelList.Count; i++)
+		for(var i = 0; i < playerStage.panelList.Count; i++)
 		{
-			var panel = this.panelList[i];
-			var panelObject = NGUITools.AddChild(this.panelContainerObject, this.panelPrefab);
+			var panel = playerStage.panelList[i];
+			var panelObject = NGUITools.AddChild(playerStage.panelContainerObject, this.panelPrefab);
 			// Set Reference
 			panel.SetUp(panelObject);
 			// Set Position
@@ -68,10 +104,12 @@ public class PanelManager
 			// Set GameObject Name
 			panel.gameObject.name = i.ToString();
 		}
-	}
 
-	private Vector3 GetPositionByIndex(int index)
-	{
-		return StageData.PANEL_POSITION_MAP[index];
+		// Set Reference
+		if (this.playerStageMap.ContainsKey(player.playerId))
+		{
+			this.playerStageMap.Add(player.playerId, playerStage);
+		}
+		player.playerStage = playerStage;
 	}
 }
