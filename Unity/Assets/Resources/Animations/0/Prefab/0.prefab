@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 482062}
   - 114: {fileID: 11432840}
   m_Layer: 0
-  m_Name: unitychan_3head
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

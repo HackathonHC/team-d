@@ -17,11 +17,13 @@ public class AnimationManager
 
 	private Transform viewTransform;
 	private Dictionary<int, GameObject> animationPrefabMap;
+	private Dictionary<int, UnitAnimation> unitAnimationMap;
 
 	public void Init()
 	{
 		this.viewTransform = GameObject.Find("AnimCamera").transform.Find("View");
 		this.animationPrefabMap = new Dictionary<int, GameObject>();
+		this.unitAnimationMap = new Dictionary<int, UnitAnimation>();
 
 		foreach (var player in PlayerManager.Instance.PlayerList)
 		{
@@ -47,7 +49,19 @@ public class AnimationManager
 
 			// Setting Reference
 			player.unitAnimation = unitAnimation;
+
+			Debug.Log(player.playerId);
+			// Setting Manager Reference
+			if (!this.unitAnimationMap.ContainsKey(player.playerId))
+			{
+				this.unitAnimationMap.Add(player.playerId, unitAnimation);
+			}
 		}
+	}
+
+	public UnitAnimation FindUnitAnimation(int playerId)
+	{
+		return this.unitAnimationMap[playerId];
 	}
 
 	private string GetPrefabPath(int id)

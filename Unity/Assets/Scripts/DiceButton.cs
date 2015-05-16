@@ -13,5 +13,19 @@ public class DiceButton : MonoBehaviour
 	public void OnButtonClick()
 	{
 		Debug.Log("click!");
+
+		// Change Animation Test
+		foreach (var player in PlayerManager.Instance.PlayerList)
+		{
+			var animation = AnimationManager.Instance.FindUnitAnimation(player.playerId);
+			if (animation.IsWait)
+			{
+				animation.Play(UnitAnimation.State.attack1);
+			}
+			else
+			{
+				animation.Play(UnitAnimation.State.wait);
+			}
+		}
 	}
 }

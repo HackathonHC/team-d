@@ -6,13 +6,21 @@ public class UnitAnimation : MonoBehaviour
 	private Player player;
 	private GameObject containerObject;
 	private GameObject animationObject;
-	private Script_SpriteStudio_PartsRoot ssPartsRoot;
+	private State status;
+	public Script_SpriteStudio_PartsRoot ssPartsRoot;
+
+	public enum State
+	{
+		wait,
+		attack1,
+	}
 
 	public void Init(Player player, GameObject containerObject, GameObject animationObject)
 	{
 		this.player = player;
 		this.containerObject = containerObject;
 		this.animationObject = animationObject;
+		this.status = State.wait;
 		this.ssPartsRoot = animationObject.GetComponent<Script_SpriteStudio_PartsRoot>();
 
 		this.containerObject.name = GetContainerName(this.player);
@@ -21,8 +29,25 @@ public class UnitAnimation : MonoBehaviour
 		this.animationObject.name = "Animation";
 		this.containerObject.layer = LayerMask.NameToLayer("2DUI");
 
-		var index = GetAnimationIndex("wait");
+		Play(State.wait);
+	}
+
+	public bool IsWait
+	{
+		get { return this.status == State.wait; }
+	}
+
+	public bool IsAttack
+	{
+		get { return this.status == State.attack1; }
+	}
+
+	public void Play(State state)
+	{
+		var motionName = state.ToString();
+		var index = GetAnimationIndex(motionName);
 		this.ssPartsRoot.AnimationPlay(index);
+		this.status = state;
 	}
 
 	public int GetAnimationIndex(string motionName)
