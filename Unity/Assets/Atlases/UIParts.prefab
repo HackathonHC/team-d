@@ -42,7 +42,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 1fe238b25f17c44608704c007568bce5, type: 2}
   mSprites:
   - name: 1
-    x: 974
+    x: 999
     y: 659
     width: 24
     height: 59
@@ -68,8 +68,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 1p_gage_frame
-    x: 235
-    y: 603
+    x: 629
+    y: 674
     width: 292
     height: 44
     borderLeft: 0
@@ -81,8 +81,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 1
   - name: 2
-    x: 0
-    y: 3
+    x: 961
+    y: 965
     width: 51
     height: 59
     borderLeft: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 2p_gage_frame
-    x: 629
-    y: 674
+    x: 235
+    y: 603
     width: 292
     height: 44
     borderLeft: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: 3
     x: 961
-    y: 752
+    y: 905
     width: 51
     height: 59
     borderLeft: 0
@@ -133,19 +133,6 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: 4
-    x: 922
-    y: 659
-    width: 51
-    height: 59
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 1
-    paddingTop: 1
-    paddingBottom: 0
-  - name: 5
     x: 961
     y: 812
     width: 51
@@ -158,9 +145,22 @@ MonoBehaviour:
     paddingRight: 1
     paddingTop: 1
     paddingBottom: 0
+  - name: 5
+    x: 170
+    y: 57
+    width: 51
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
   - name: 6
     x: 118
-    y: 294
+    y: 57
     width: 51
     height: 59
     borderLeft: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: 8
     x: 170
-    y: 354
+    y: 117
     width: 51
     height: 59
     borderLeft: 0
@@ -185,8 +185,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: 9
-    x: 52
-    y: 3
+    x: 118
+    y: 117
     width: 51
     height: 59
     borderLeft: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: h_1
-    x: 999
+    x: 974
     y: 659
     width: 24
     height: 59
@@ -250,8 +250,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: h_2
-    x: 170
-    y: 294
+    x: 961
+    y: 752
     width: 51
     height: 59
     borderLeft: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: h_3
-    x: 118
-    y: 234
+    x: 922
+    y: 659
     width: 51
     height: 59
     borderLeft: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: h_4
-    x: 170
-    y: 174
+    x: 0
+    y: 3
     width: 51
     height: 59
     borderLeft: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: h_5
-    x: 118
-    y: 174
+    x: 52
+    y: 3
     width: 51
     height: 59
     borderLeft: 0
@@ -302,8 +302,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: h_6
-    x: 170
-    y: 234
+    x: 118
+    y: 237
     width: 51
     height: 59
     borderLeft: 0
@@ -315,8 +315,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: h_7
-    x: 961
-    y: 905
+    x: 170
+    y: 237
     width: 51
     height: 59
     borderLeft: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: h_8
     x: 118
-    y: 354
+    y: 177
     width: 51
     height: 59
     borderLeft: 0
@@ -341,8 +341,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: h_9
-    x: 961
-    y: 965
+    x: 170
+    y: 177
     width: 51
     height: 59
     borderLeft: 0
@@ -366,7 +366,7 @@ MonoBehaviour:
     paddingRight: 1
     paddingTop: 2
     paddingBottom: 2
-  - name: panel_dead
+  - name: panel_damage
     x: 0
     y: 414
     width: 116
@@ -379,9 +379,22 @@ MonoBehaviour:
     paddingRight: 2
     paddingTop: 2
     paddingBottom: 2
+  - name: panel_dead
+    x: 118
+    y: 297
+    width: 116
+    height: 116
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 2
   - name: panel_non
     x: 118
-    y: 531
+    y: 414
     width: 116
     height: 116
     borderLeft: 0
@@ -393,8 +406,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: panel_random
-    x: 0
-    y: 180
+    x: 118
+    y: 531
     width: 116
     height: 116
     borderLeft: 0
@@ -420,7 +433,7 @@ MonoBehaviour:
     paddingBottom: 2
   - name: panel_rest
     x: 0
-    y: 297
+    y: 180
     width: 116
     height: 116
     borderLeft: 0
@@ -432,8 +445,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: panel_special
-    x: 118
-    y: 414
+    x: 0
+    y: 297
     width: 116
     height: 116
     borderLeft: 0
