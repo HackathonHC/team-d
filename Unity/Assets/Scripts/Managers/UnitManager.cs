@@ -22,14 +22,14 @@ public class UnitManager
 		foreach (var player in PlayerManager.Instance.PlayerList)
 		{
 			var unit = new Unit(player.unitId);
-			if (this.unitMap.ContainsKey(player.playerId))
+			if (!this.unitMap.ContainsKey(player.playerId))
 			{
 				this.unitMap.Add(player.playerId, unit);
 			}
 		}
 	}
 
-	public UnitAnimation FindUnit(int playerId)
+	public Unit FindUnit(int playerId)
 	{
 		return this.unitMap[playerId];
 	}

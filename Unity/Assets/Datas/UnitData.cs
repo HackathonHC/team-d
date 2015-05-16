@@ -12,6 +12,17 @@ public class UnitData
 	public static readonly Dictionary<int, Dictionary<string, object>> UNIT_DATA = new Dictionary<int, Dictionary<string, object>>()
 	{
 		{ 
+			0, // Dummy
+			new Dictionary<string, object>()
+			{ 
+				{ "id",    	 0   }, 
+				{ "hp",      600 }, 
+				{ "attack",  200 }, 
+				{ "type",    Unit.Type.Attack }, 
+				{ "name",    "0"}, 
+			}
+		},
+		{ 
 			1, // Attack
 			new Dictionary<string, object>()
 			{ 
