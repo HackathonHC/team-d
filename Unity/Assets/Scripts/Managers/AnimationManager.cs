@@ -50,7 +50,6 @@ public class AnimationManager
 			// Setting Reference
 			player.unitAnimation = unitAnimation;
 
-			Debug.Log(player.playerId);
 			// Setting Manager Reference
 			if (!this.unitAnimationMap.ContainsKey(player.playerId))
 			{
