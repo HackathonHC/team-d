@@ -53,7 +53,7 @@ public class DiceManager : MonoBehaviour
 		switch (this.state) {
 		case State.init:
 			this.state = State.wait;
-			transform.localPosition = new Vector3(0.3f,0f,-10				f);
+			transform.localPosition = new Vector3(0.3f,0f,-10f);
 			transform.localRotation = Quaternion.Euler(-75f,0f,0f);
 			break;
 
