@@ -106,7 +106,7 @@ public class PanelManager
 		}
 
 		// Set Reference
-		if (this.playerStageMap.ContainsKey(player.playerId))
+		if (!this.playerStageMap.ContainsKey(player.playerId))
 		{
 			this.playerStageMap.Add(player.playerId, playerStage);
 		}
