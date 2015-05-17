@@ -16,7 +16,7 @@ public class DiceManager : MonoBehaviour
 
 	private Die_d6 die;
 	public int value;
-	private State state;
+	public State state;
 
 //	private Rigidbody rigidbody;
 

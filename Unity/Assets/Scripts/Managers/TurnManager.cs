@@ -104,6 +104,8 @@ public class TurnManager
 
 	public void OnPanelEffectEnd()
 	{
+		DiceManager.Instance.state = DiceManager.State.init;
+
 		if (this.currentPlayerId == 1)
 		{
 			this.currentPlayerId = 2;
