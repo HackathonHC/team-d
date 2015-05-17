@@ -9,6 +9,7 @@ public class Player
 	public PanelManager.PlayerStage playerStage;
 	public UnitAnimation unitAnimation;
 	public Unit unit;
+	public Cursol cursol;
 
 	public struct Parameter
 	{
@@ -31,5 +32,6 @@ public class Player
 		this.stageId = parameter.stageId;
 		this.unitAnimation = null;
 		this.unit = null;
+		this.cursol = null;
 	}
 }

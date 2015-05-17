@@ -56,6 +56,32 @@ public class UnitAnimation : MonoBehaviour
 		this.status = state;
 	}
 
+	public Promises.Deferred PlayOnce(State state)
+	{
+		var deferred = new Promises.Deferred();
+
+		var motionName = state.ToString();
+		var index = GetAnimationIndex(motionName);
+		this.ssPartsRoot.AnimationPlay(index, 1);
+		this.status = state;
+
+        this.ssPartsRoot.FunctionPlayEnd = (_) =>
+        {
+			if (this.player.unit.isRest)
+			{
+				Play(State.rest);
+			}
+			else
+			{
+            	Play(State.non);
+			}
+            deferred.Resolve();
+            return true;
+        };
+
+		return deferred;
+	}
+
 	public int GetAnimationIndex(string motionName)
 	{
 		return this.ssPartsRoot.AnimationGetIndexNo(motionName);
@@ -82,11 +108,13 @@ public class UnitAnimation : MonoBehaviour
 	{
 		if (player.playerId == 1)
 		{
-			return new Vector3(-216f, 0f);
+//			return new Vector3(-216f, 0f);
+			return new Vector3(-240f, 0f);
 		}
 		else
 		{
-			return new Vector3(236f, 0f);
+//			return new Vector3(236f, 0f);
+			return new Vector3(240f, 0f);
 		}
 	}
 }

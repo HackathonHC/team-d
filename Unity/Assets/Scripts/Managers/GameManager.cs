@@ -17,5 +17,9 @@ public class GameManager : MonoBehaviour
 		AnimationManager.Instance.Init();
 		PanelManager.Instance.Init();
 		CursolManager.Instance.Init();
+		UIAnimationManager.Instance.Init();
+		TurnManager.Instance.Init();
+
+		TurnManager.Instance.StartTurn();
 	}
 }

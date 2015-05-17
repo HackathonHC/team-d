@@ -25,6 +25,8 @@ public class CursolManager
 			var cursolObject = NGUITools.AddChild(playerStage.panelContainerObject, this.cursolPrefab);
 			var cursol = new Cursol();
 			cursol.SetUp(player, cursolObject);
+			// reference
+			player.cursol = cursol;
 		}
 	}
 }
