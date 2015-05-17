@@ -36,6 +36,23 @@ public class AnimationComponent : MonoBehaviour
         );
 		return deferred;
     }
+
+	public Promises.Deferred Move(float time, Vector3 from, Vector3 to)
+	{
+		var deferred = new Promises.Deferred();
+		this.gameObject.transform.localPosition = from;
+		iTween.MoveTo(this.gameObject, iTween.Hash(
+			"position", to, 
+			"time", time,
+			"delay", 0.1f, 
+			"easetype", "easeOutSine", 
+			"oncomplete", "OnTweenComplete",
+			"islocal", true,
+			"oncompleteparams", deferred
+            )
+        );
+		return deferred;
+	}
     
     public void OnTweenComplete(Promises.Deferred deferred)
 	{

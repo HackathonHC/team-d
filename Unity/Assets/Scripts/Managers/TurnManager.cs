@@ -21,11 +21,13 @@ public class TurnManager
 
 	private int currentPlayerId;
 	private Promises.Deferred deferred;
+	private UIButton diceButton;
 
 	public void Init()
 	{
 		var senkouPlayer = PlayerManager.Instance.Player1;
 		this.currentPlayerId = senkouPlayer.playerId;
+		this.diceButton = GameObject.Find("L2").transform.Find("DiceButton").GetComponent<UIButton>();
 	}
 
 	public Player CurrentPlayer
@@ -39,6 +41,28 @@ public class TurnManager
 	public void StartTurn()
 	{
 //		UIAnimationManager.Instance.PlayAnimation(UIAnimationManager.Type.BattleStart);
-		UIAnimationManager.Instance.PlayTurnAnimation(this.CurrentPlayer);
+
+		UIAnimationManager.Instance.PlayTurnAnimation(this.CurrentPlayer).Done(()=>
+		                                                                       {
+			this.diceButton.gameObject.SetActive(true);
+		});
 	}
+
+	public void OnDiceRoleEnd(int value)
+	{
+		this.CurrentPlayer.cursol.Progress(value).Done(()=>
+		                                               {
+			// TODO panel effect
+			if (this.currentPlayerId == 1)
+			{
+				this.currentPlayerId = 2;
+			}
+			else
+			{
+				this.currentPlayerId = 1;
+			}
+			StartTurn();
+		});
+	}
+
 }

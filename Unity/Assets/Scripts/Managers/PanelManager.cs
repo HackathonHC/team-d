@@ -13,7 +13,7 @@ public class PanelManager
 		}
 	}
 
-	private int PANEL_SIZE = 22;
+	public int PANEL_SIZE = 22;
 	private string PANEL_PREFAB_PATH = "Prefabs/Panel";
 	private UI2DSprite bgSprite;
 	private GameObject panelPrefab;

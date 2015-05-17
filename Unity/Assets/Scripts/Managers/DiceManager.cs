@@ -29,14 +29,19 @@ public class DiceManager : MonoBehaviour
 		}
 	}
 
-	public void diceRole()
+	private Promises.Deferred deferred;
+	public Promises.Deferred diceRole()
 	{
+		// Init Deferred 
+		this.deferred = new Promises.Deferred();
+
 		if (this.state == State.wait) {
 			this.state = State.start;
 		}
 		if (this.state == State.roleEnd) {
 			this.state = State.init;
 		}
+		return this.deferred;
 	}
 
 	void Awake() 
@@ -89,6 +94,11 @@ public class DiceManager : MonoBehaviour
 
 		case State.roleEnd:
 			value = die.value;
+
+			// Deferred kaiketu
+			this.state = State.wait;
+			this.deferred.Resolve();
+
 //			Debug.Log(value);
 			break;
 		}

@@ -28,6 +28,12 @@ public class DiceButton : MonoBehaviour
 //			}
 //		}
 
-		DiceManager.Instance.diceRole();
+		DiceManager.Instance.diceRole().Done(()=>
+		                                     {
+			var value = DiceManager.Instance.value;
+			TurnManager.Instance.OnDiceRoleEnd(value);
+		});
+
+		this.gameObject.SetActive(false);
 	}
 }
