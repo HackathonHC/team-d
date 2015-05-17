@@ -26,6 +26,13 @@ public class CharacterSelect : MonoBehaviour {
 		this.characterImage2 = Resources.Load<Sprite>("Sprites/Characters/chara02");
 		this.characterImage3 = Resources.Load<Sprite>("Sprites/Characters/chara03");
 
+		this.transform.Find("p1/nameLabel").GetComponent<UISprite>().spriteName = "";
+		this.transform.Find("p1/attack").GetComponent<UISprite>().spriteName = "";
+		this.transform.Find("p1/defense").GetComponent<UISprite>().spriteName = "";
+		this.transform.Find("p2/nameLabel").GetComponent<UISprite>().spriteName = "";
+		this.transform.Find("p2/attack").GetComponent<UISprite>().spriteName = "";
+		this.transform.Find("p2/defense").GetComponent<UISprite>().spriteName = "";
+
 		charaSelected(1);
 	}
 
@@ -72,6 +79,8 @@ public class CharacterSelect : MonoBehaviour {
 			this.character2.GetComponent<UIButton>().defaultColor = Color.gray;
 			this.character3.GetComponent<UIButton>().defaultColor = Color.gray;
 			
+			this.transform.Find("p" + this.selectPlayer + "/nameLabel").GetComponent<UISprite>().spriteName = "charaName01";
+			
 			this.transform.Find("p" + this.selectPlayer + "/selectCharacter").GetComponent<UI2DSprite>().sprite2D = characterImage1;
 
 			break;
@@ -80,6 +89,8 @@ public class CharacterSelect : MonoBehaviour {
 			this.character2.GetComponent<UIButton>().defaultColor = Color.white;
 			this.character3.GetComponent<UIButton>().defaultColor = Color.gray;
 			
+			this.transform.Find("p" + this.selectPlayer + "/nameLabel").GetComponent<UISprite>().spriteName = "charaName02";
+
 			this.transform.Find("p" + this.selectPlayer + "/selectCharacter").GetComponent<UI2DSprite>().sprite2D = characterImage2;
 
 			break;
@@ -88,6 +99,8 @@ public class CharacterSelect : MonoBehaviour {
 			this.character2.GetComponent<UIButton>().defaultColor = Color.gray;
 			this.character3.GetComponent<UIButton>().defaultColor = Color.white;
 			
+			this.transform.Find("p" + this.selectPlayer + "/nameLabel").GetComponent<UISprite>().spriteName = "charaName03";
+
 			this.transform.Find("p" + this.selectPlayer + "/selectCharacter").GetComponent<UI2DSprite>().sprite2D = characterImage3;
 			break;
 		}
