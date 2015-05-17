@@ -75,34 +75,45 @@ public class Panel
 
 	private void Attack(Player sourcePlayer, Player targetPlayer)
 	{
-		sourcePlayer.unitAnimation.Play(UnitAnimation.State.attack);
-		targetPlayer.unitAnimation.Play(UnitAnimation.State.damage);
-		this.deferred.Resolve();
+		sourcePlayer.unitAnimation.PlayOnce(UnitAnimation.State.attack).Done(()=>
+		{
+			targetPlayer.unitAnimation.PlayOnce(UnitAnimation.State.damage);
+			this.deferred.Resolve();
+		});
 	}
 
 	private void Special(Player sourcePlayer, Player targetPlayer)
 	{
-		sourcePlayer.unitAnimation.Play(UnitAnimation.State.special);
-		targetPlayer.unitAnimation.Play(UnitAnimation.State.damage);
-		this.deferred.Resolve();
+		sourcePlayer.unitAnimation.PlayOnce(UnitAnimation.State.special).Done(()=>
+		{
+			targetPlayer.unitAnimation.PlayOnce(UnitAnimation.State.damage);
+			this.deferred.Resolve();
+		});
 	}
 
 	private void Damage(Player sourcePlayer, Player targetPlayer)
 	{
-		sourcePlayer.unitAnimation.Play(UnitAnimation.State.damage);
-		this.deferred.Resolve();
+		sourcePlayer.unitAnimation.PlayOnce(UnitAnimation.State.damage).Done(()=>
+		{
+			this.deferred.Resolve();
+		});
 	}
 
 	private void Dead(Player sourcePlayer, Player targetPlayer)
 	{
-		sourcePlayer.unitAnimation.Play(UnitAnimation.State.dead);
-		this.deferred.Resolve();
+		sourcePlayer.unitAnimation.PlayOnce(UnitAnimation.State.dead).Done(()=>
+		{
+			this.deferred.Resolve();
+		});
 	}
 
 	private void Recover(Player sourcePlayer, Player targetPlayer)
 	{
-		sourcePlayer.unitAnimation.Play(UnitAnimation.State.recover);
-		this.deferred.Resolve();
+		sourcePlayer.unitAnimation.PlayOnce(UnitAnimation.State.recover).Done(()=>
+		                                                                      {
+
+			this.deferred.Resolve();
+		});
 	}
 
 	private void Rest(Player sourcePlayer, Player targetPlayer)
@@ -113,11 +124,13 @@ public class Panel
 
 	private void Rand(Player sourcePlayer, Player targetPlayer)
 	{
+		sourcePlayer.unitAnimation.Play(UnitAnimation.State.non);
 		this.deferred.Resolve();
 	}
 
 	private void None(Player sourcePlayer, Player targetPlayer)
 	{
+		sourcePlayer.unitAnimation.Play(UnitAnimation.State.non);
 		this.deferred.Resolve();
 	}
 }

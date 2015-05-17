@@ -56,6 +56,25 @@ public class UnitAnimation : MonoBehaviour
 		this.status = state;
 	}
 
+	public Promises.Deferred PlayOnce(State state)
+	{
+		var deferred = new Promises.Deferred();
+
+		var motionName = state.ToString();
+		var index = GetAnimationIndex(motionName);
+		this.ssPartsRoot.AnimationPlay(index, 1);
+		this.status = state;
+
+        this.ssPartsRoot.FunctionPlayEnd = (_) =>
+        {
+            Play(State.non);
+            deferred.Resolve();
+            return true;
+        };
+
+		return deferred;
+	}
+
 	public int GetAnimationIndex(string motionName)
 	{
 		return this.ssPartsRoot.AnimationGetIndexNo(motionName);
