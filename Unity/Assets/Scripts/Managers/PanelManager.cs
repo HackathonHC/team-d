@@ -30,8 +30,6 @@ public class PanelManager
 	public void Init()
 	{
 		this.bgSprite = GameObject.Find("UIRoot/L1").transform.Find("Bg").GetComponent<UI2DSprite>();
-		this.bgSprite.sprite2D = Resources.Load<Sprite>("Sprites/Bg/bg1");
-		this.bgSprite.transform.localRotation = new Quaternion(0f, 0f, 0f, 0f); // TODO FIX
 		this.playerStageMap = new Dictionary<int, PlayerStage>();
 
 		// Create Player's Stage
