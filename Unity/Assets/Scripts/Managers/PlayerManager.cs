@@ -31,6 +31,16 @@ public class PlayerManager
 		this.player2.Init(playerPalameter2);
 	}
 
+	public Player Player1
+	{
+		get { return this.player1; }
+	}
+
+	public Player Player2
+	{
+		get { return this.player2; }
+	}
+
 	public List<Player> PlayerList
 	{
 		get
