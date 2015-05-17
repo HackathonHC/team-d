@@ -95,7 +95,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: chara_icon02
     x: 715
-    y: 855
+    y: 685
     width: 306
     height: 169
     borderLeft: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: chara_icon03
     x: 715
-    y: 685
+    y: 855
     width: 306
     height: 169
     borderLeft: 0
@@ -117,6 +117,45 @@ MonoBehaviour:
     borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
+  - name: charaName01
+    x: 360
+    y: 693
+    width: 254
+    height: 36
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 2
+    paddingTop: 0
+    paddingBottom: 0
+  - name: charaName02
+    x: 0
+    y: 252
+    width: 252
+    height: 36
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 0
+  - name: charaName03
+    x: 0
+    y: 216
+    width: 244
+    height: 35
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 7
+    paddingRight: 5
     paddingTop: 0
     paddingBottom: 1
   - name: charaselect_cursol
@@ -172,8 +211,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rank_a
-    x: 575
-    y: 682
+    x: 656
+    y: 759
     width: 45
     height: 47
     borderLeft: 0
@@ -185,8 +224,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: rank_b
-    x: 656
-    y: 710
+    x: 125
+    y: 316
     width: 41
     height: 47
     borderLeft: 0
@@ -199,7 +238,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: rank_c
     x: 656
-    y: 758
+    y: 710
     width: 42
     height: 48
     borderLeft: 0
@@ -211,8 +250,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: status_txt
-    x: 360
-    y: 691
+    x: 0
+    y: 177
     width: 214
     height: 38
     borderLeft: 0
