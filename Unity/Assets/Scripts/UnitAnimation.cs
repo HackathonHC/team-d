@@ -11,8 +11,14 @@ public class UnitAnimation : MonoBehaviour
 
 	public enum State
 	{
-		wait,
-		attack1,
+		attack   = 1,
+		special  = 2,
+		damage   = 3,
+		dead     = 4,
+		recover  = 5,
+		rest     = 6,
+		random   = 7,
+		non      = 8,
 	}
 
 	public void Init(Player player, GameObject containerObject, GameObject animationObject)
@@ -20,7 +26,7 @@ public class UnitAnimation : MonoBehaviour
 		this.player = player;
 		this.containerObject = containerObject;
 		this.animationObject = animationObject;
-		this.status = State.wait;
+		this.status = State.non;
 		this.ssPartsRoot = animationObject.GetComponent<Script_SpriteStudio_PartsRoot>();
 
 		this.containerObject.name = GetContainerName(this.player);
@@ -29,17 +35,17 @@ public class UnitAnimation : MonoBehaviour
 		this.animationObject.name = "Animation";
 		this.containerObject.layer = LayerMask.NameToLayer("2DUI");
 
-		Play(State.wait);
+		Play(State.non);
 	}
 
 	public bool IsWait
 	{
-		get { return this.status == State.wait; }
+		get { return this.status == State.non; }
 	}
 
 	public bool IsAttack
 	{
-		get { return this.status == State.attack1; }
+		get { return this.status == State.attack; }
 	}
 
 	public void Play(State state)
@@ -64,11 +70,11 @@ public class UnitAnimation : MonoBehaviour
 	{
 		if (player.playerId == 1)
 		{
-			return new Vector3(-0.5f, 0.5f);
+			return new Vector3(0.5f, 0.5f);
 		}
 		else
 		{
-			return new Vector3(0.5f, 0.5f);
+			return new Vector3(-0.5f, 0.5f);
 		}
 	}
 
@@ -76,11 +82,11 @@ public class UnitAnimation : MonoBehaviour
 	{
 		if (player.playerId == 1)
 		{
-			return new Vector3(-216f, -151f);
+			return new Vector3(-216f, 0f);
 		}
 		else
 		{
-			return new Vector3(236f, -151f);
+			return new Vector3(236f, 0f);
 		}
 	}
 }

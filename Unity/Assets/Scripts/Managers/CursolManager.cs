@@ -18,7 +18,6 @@ public class CursolManager
 	public void Init()
 	{
 		this.cursolPrefab = Resources.Load<GameObject>(CURSOL_PREFAB_PATH);
-		Debug.Log(this.cursolPrefab);
 		foreach (var player in PlayerManager.Instance.PlayerList)
 		{
 			var playerStage = PanelManager.Instance.FindPlayerStage(player.playerId);
