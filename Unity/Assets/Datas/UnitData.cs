@@ -19,7 +19,7 @@ public class UnitData
 				{ "hp",      600 }, 
 				{ "attack",  200 }, 
 				{ "type",    Unit.Type.Attack }, 
-				{ "name",    "0"}, 
+				{ "name",    "-"}, 
 			}
 		},
 		{ 
@@ -30,7 +30,7 @@ public class UnitData
 				{ "hp",      600 }, 
 				{ "attack",  200 }, 
 				{ "type",    Unit.Type.Attack }, 
-				{ "name",    "1"}, 
+				{ "name",    "サイモト　ミドリ"}, 
 			}
 		},
 		{ 
@@ -41,7 +41,7 @@ public class UnitData
 				{ "hp",      900 }, 
 				{ "attack",  150 }, 
 				{ "type",    Unit.Type.Balance }, 
-				{ "name",    "2"}, 
+				{ "name",    "ヒイラギ　ヒイロ"}, 
 			}
 		},
 		{
@@ -52,7 +52,7 @@ public class UnitData
 				{ "hp",      600 }, 
 				{ "attack",  100 }, 
 				{ "type",    Unit.Type.Defence }, 
-				{ "name",    "3"}, 
+				{ "name",    "カイガ　アオイ"}, 
 			}
 		},
 	};
