@@ -24,6 +24,7 @@ public class PanelManager
 		public Player player;
 		public List<Panel> panelList;
 		public GameObject panelContainerObject;
+		public AnimationComponent animationComponent;
 	}
 
 	public void Init()
@@ -90,7 +91,10 @@ public class PanelManager
 		// Add UiPanel for Container
 		var uiPanel = playerStage.panelContainerObject.AddComponent<UIPanel>();
 		uiPanel.depth = 1; // TODO: Fix
-		
+
+		// Add Animation Component
+		playerStage.animationComponent = playerStage.panelContainerObject.AddMissingComponent<AnimationComponent>();
+
 		// Set Scene
 		this.panelPrefab = Resources.Load<GameObject>(PANEL_PREFAB_PATH);
 		for(var i = 0; i < playerStage.panelList.Count; i++)

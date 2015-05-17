@@ -53,6 +53,51 @@ public class AnimationComponent : MonoBehaviour
         );
 		return deferred;
 	}
+
+	public Promises.Deferred FadeIn()
+	{
+		var deferred = new Promises.Deferred();
+		var time = 1f;
+		iTween.ValueTo(this.gameObject, iTween.Hash(
+			"from", 0f, 
+			"to", 1f, 
+			"time", time,
+			"easetype", "easeOutSine",
+			"onupdate", "OnFadeUpdate",
+			"oncomplete", "OnTweenComplete",
+			"islocal", true,
+			"oncompleteparams", deferred
+			)
+		              );
+		return deferred;
+	}
+
+	public Promises.Deferred FadeOut()
+	{
+		var deferred = new Promises.Deferred();
+		var time = 1f;
+		iTween.ValueTo(this.gameObject, iTween.Hash(
+			"from", 1f, 
+			"to", 0f, 
+			"time", time,
+			"easetype", "easeOutSine",
+			"onupdate", "OnFadeUpdate",
+			"oncomplete", "OnTweenComplete",
+			"islocal", true,
+			"oncompleteparams", deferred
+			)
+		               );
+		return deferred;
+	}
+	
+    public void OnFadeUpdate(float value)
+	{
+		var uiPanel = GetComponent<UIPanel>();
+		if (uiPanel != null)
+		{
+			uiPanel.alpha = value;
+		}
+	}
     
     public void OnTweenComplete(Promises.Deferred deferred)
 	{

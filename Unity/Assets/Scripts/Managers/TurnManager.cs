@@ -41,6 +41,16 @@ public class TurnManager
 	public void StartTurn()
 	{
 //		UIAnimationManager.Instance.PlayAnimation(UIAnimationManager.Type.BattleStart);
+		if (this.currentPlayerId == 1)
+		{
+			PlayerManager.Instance.Player1.playerStage.animationComponent.FadeIn();
+			PlayerManager.Instance.Player2.playerStage.animationComponent.FadeOut();
+		}
+		else
+		{
+			PlayerManager.Instance.Player1.playerStage.animationComponent.FadeOut();
+			PlayerManager.Instance.Player2.playerStage.animationComponent.FadeIn();
+		}
 
 		UIAnimationManager.Instance.PlayTurnAnimation(this.CurrentPlayer).Done(()=>
 		                                                                       {
