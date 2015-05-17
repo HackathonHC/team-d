@@ -32,8 +32,92 @@ public class Panel
 		this.sprite.MakePixelPerfect();
 	}
 
+	private Promises.Deferred deferred;
+	public Promises.Deferred Execute(Player sourcePlayer, Player targetPlayer)
+	{
+		this.deferred = new Promises.Deferred();
+
+		switch (this.type)
+		{
+			case Type.Attack:
+				Attack(sourcePlayer, targetPlayer);
+				break;
+			case Type.Special:
+				Special(sourcePlayer, targetPlayer);
+				break;
+			case Type.Damage:
+				Damage(sourcePlayer, targetPlayer);
+				break;
+			case Type.Dead:
+				Dead(sourcePlayer, targetPlayer);
+				break;
+			case Type.Recover:
+				Recover(sourcePlayer, targetPlayer);
+				break;
+			case Type.Rest:
+				Rest(sourcePlayer, targetPlayer);
+				break;
+			case Type.Rand:
+				Rand(sourcePlayer, targetPlayer);
+				break;
+			case Type.Non:
+				None(sourcePlayer, targetPlayer);
+				break;
+		}
+
+		return this.deferred;
+	}
+
 	private string GetSpriteNameByPanelType(Type panelType)
 	{
 		return StageData.PANEL_SPRITE_NAME_MAP[panelType];
+	}
+
+	private void Attack(Player sourcePlayer, Player targetPlayer)
+	{
+		sourcePlayer.unitAnimation.Play(UnitAnimation.State.attack);
+		targetPlayer.unitAnimation.Play(UnitAnimation.State.damage);
+		this.deferred.Resolve();
+	}
+
+	private void Special(Player sourcePlayer, Player targetPlayer)
+	{
+		sourcePlayer.unitAnimation.Play(UnitAnimation.State.special);
+		targetPlayer.unitAnimation.Play(UnitAnimation.State.damage);
+		this.deferred.Resolve();
+	}
+
+	private void Damage(Player sourcePlayer, Player targetPlayer)
+	{
+		sourcePlayer.unitAnimation.Play(UnitAnimation.State.damage);
+		this.deferred.Resolve();
+	}
+
+	private void Dead(Player sourcePlayer, Player targetPlayer)
+	{
+		sourcePlayer.unitAnimation.Play(UnitAnimation.State.dead);
+		this.deferred.Resolve();
+	}
+
+	private void Recover(Player sourcePlayer, Player targetPlayer)
+	{
+		sourcePlayer.unitAnimation.Play(UnitAnimation.State.recover);
+		this.deferred.Resolve();
+	}
+
+	private void Rest(Player sourcePlayer, Player targetPlayer)
+	{
+		sourcePlayer.unitAnimation.Play(UnitAnimation.State.rest);
+		this.deferred.Resolve();
+	}
+
+	private void Rand(Player sourcePlayer, Player targetPlayer)
+	{
+		this.deferred.Resolve();
+	}
+
+	private void None(Player sourcePlayer, Player targetPlayer)
+	{
+		this.deferred.Resolve();
 	}
 }

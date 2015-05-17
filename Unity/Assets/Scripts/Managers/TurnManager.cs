@@ -61,18 +61,40 @@ public class TurnManager
 	public void OnDiceRoleEnd(int value)
 	{
 		this.CurrentPlayer.cursol.Progress(value).Done(()=>
-		                                               {
-			// TODO panel effect
+		{
+			var currentIndex = this.CurrentPlayer.cursol.currentCursolIndex;
+			var currentPanel = this.CurrentPlayer.playerStage.panelList[currentIndex];
+
+			Player sourcePlayer;
+			Player targetPlayer;
 			if (this.currentPlayerId == 1)
 			{
-				this.currentPlayerId = 2;
+				sourcePlayer = PlayerManager.Instance.Player1;
+				targetPlayer = PlayerManager.Instance.Player2;
 			}
 			else
 			{
-				this.currentPlayerId = 1;
+				sourcePlayer = PlayerManager.Instance.Player2;
+				targetPlayer = PlayerManager.Instance.Player1;
 			}
-			StartTurn();
+				
+			currentPanel.Execute(sourcePlayer, targetPlayer).Done(()=>
+			{
+				OnPanelEffectEnd();
+			});
 		});
 	}
 
+	public void OnPanelEffectEnd()
+	{
+		if (this.currentPlayerId == 1)
+		{
+			this.currentPlayerId = 2;
+		}
+		else
+		{
+			this.currentPlayerId = 1;
+		}
+		StartTurn();
+	}
 }
