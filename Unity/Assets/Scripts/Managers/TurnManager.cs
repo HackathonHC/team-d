@@ -40,7 +40,17 @@ public class TurnManager
 
 	public void StartTurn()
 	{
-//		UIAnimationManager.Instance.PlayAnimation(UIAnimationManager.Type.BattleStart);
+		// Rest Once
+		if (this.CurrentPlayer.unit.isRest)
+		{
+			this.CurrentPlayer.unitAnimation.Play(UnitAnimation.State.non);
+			this.CurrentPlayer.unit.isRest = false;
+			// End Turn
+			OnPanelEffectEnd();
+			return;
+		}
+
+		// 
 		if (this.currentPlayerId == 1)
 		{
 			PlayerManager.Instance.Player1.playerStage.animationComponent.FadeIn();

@@ -204,8 +204,44 @@ public class Panel
 
 	private void Rand(Player sourcePlayer, Player targetPlayer)
 	{
-		sourcePlayer.unitAnimation.Play(UnitAnimation.State.non);
-		this.deferred.Resolve();
+		// NOTE: Random
+		//		攻撃マス	15
+		//		必殺技マス	10
+		//		ダメージマス	23
+		//		一撃死マス	2
+		//		回復マス	20
+		//		一回休みマス	10
+		//		空白マス	20
+
+		var rand = Random.Range(0, 100);
+		if (rand < 15)
+		{
+			Attack(sourcePlayer, targetPlayer);
+		}
+		else if (rand < 25)
+		{
+			Special(sourcePlayer, targetPlayer);
+		}
+		else if (rand < 48)
+		{
+			Damage(sourcePlayer, targetPlayer);
+		}
+		else if (rand < 50)
+		{
+			Dead(sourcePlayer, targetPlayer);
+		}
+		else if (rand < 70)
+		{
+			Recover(sourcePlayer, targetPlayer);
+		}
+		else if (rand < 80)
+		{
+			Rest(sourcePlayer, targetPlayer);
+		}
+		else
+		{
+			None(sourcePlayer, targetPlayer);
+		}
 	}
 
 	private void None(Player sourcePlayer, Player targetPlayer)

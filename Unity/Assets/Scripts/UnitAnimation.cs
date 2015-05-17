@@ -67,7 +67,14 @@ public class UnitAnimation : MonoBehaviour
 
         this.ssPartsRoot.FunctionPlayEnd = (_) =>
         {
-            Play(State.non);
+			if (this.player.unit.isRest)
+			{
+				Play(State.rest);
+			}
+			else
+			{
+            	Play(State.non);
+			}
             deferred.Resolve();
             return true;
         };

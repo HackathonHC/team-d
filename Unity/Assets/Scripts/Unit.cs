@@ -26,11 +26,13 @@ public class Unit
 	public Player player;
 	public UIProgressBar hpBar;
 	public AnimationComponent hpBarAnimation;
+	public bool isRest;
 
 	public Unit(int id)
 	{
 		this.player = null;
 		this.unitAnimation = null;
+		this.isRest = true;
 
 		// Load
 		var parameters = UnitData.GetData(id);
