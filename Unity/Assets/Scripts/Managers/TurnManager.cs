@@ -30,6 +30,6 @@ public class TurnManager
 
 	public void StartTurn()
 	{
-        this.deferred = new Promises.Deferred();
+		UIAnimationManager.Instance.PlayAnimation(UIAnimationManager.Type.BattleStart);
 	}
 }
