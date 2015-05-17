@@ -48,4 +48,16 @@ public class PlayerManager
 			return this.playerList;
 		}
 	}
+		
+	public Player FindPlayer(int playerId)
+	{
+		if (playerId == 1)
+		{
+			return this.player1;
+		}
+		else
+		{
+			return this.player2;
+		}
+	}
 }

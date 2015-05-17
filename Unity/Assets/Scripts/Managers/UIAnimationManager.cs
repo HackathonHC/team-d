@@ -15,6 +15,7 @@ public class UIAnimationManager
 	public enum Type 
 	{
 		BattleStart = 1,
+		TurnStart = 2,
 	}
 
 	private string BATTLE_START_PATH = "Prefabs/BattleStart";
@@ -40,11 +41,29 @@ public class UIAnimationManager
 			{
 				animation.SlideOut(1f, new Vector3(0f, 0f), new Vector3(-800f, 0f)).Done(() =>
 				{
-
+					deferred.Resolve();
 				});
 			});
 		}
+		return deferred;
+	}
 
+	public Promises.Deferred PlayTurnAnimation(Player currentPlayer)
+	{
+		var deferred = new Promises.Deferred();
+		// Create Object
+		var turnStart = CreateGameObject(this.battleStartPrefab);
+		var turnSprite = turnStart.transform.Find("Sprite").GetComponent<UISprite>();
+		turnSprite.spriteName = string.Format("{0}p", currentPlayer.playerId);
+		// Tween
+		var animation = turnStart.GetComponent<AnimationComponent>();
+		animation.SlideIn(1f, new Vector3(800f, 0f), new Vector3(0f, 0f)).Done(() =>
+		                                                                       {
+			animation.SlideOut(1f, new Vector3(0f, 0f), new Vector3(-800f, 0f)).Done(() =>
+			                                                                         {
+				deferred.Resolve();
+			});
+		});
 		return deferred;
 	}
 

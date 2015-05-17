@@ -28,8 +28,17 @@ public class TurnManager
 		this.currentPlayerId = senkouPlayer.playerId;
 	}
 
+	public Player CurrentPlayer
+	{
+		get
+		{
+			return PlayerManager.Instance.FindPlayer(this.currentPlayerId);
+		}
+	}
+
 	public void StartTurn()
 	{
-		UIAnimationManager.Instance.PlayAnimation(UIAnimationManager.Type.BattleStart);
+//		UIAnimationManager.Instance.PlayAnimation(UIAnimationManager.Type.BattleStart);
+//		UIAnimationManager.Instance.PlayTurnAnimation(this.CurrentPlayer);
 	}
 }
