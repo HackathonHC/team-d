@@ -24,7 +24,7 @@ public class PlayerManager
 		this.player2 = new Player();
 		this.playerList = new List<Player>(PLAYER_SIZE) { this.player1, this.player2 };
 
-		var playerPalameter1 = new Player.Parameter(1, 2, 1); // Player Id, Unit Id, Stage Id
+		var playerPalameter1 = new Player.Parameter(1, 1, 1); // Player Id, Unit Id, Stage Id
 		var playerPalameter2 = new Player.Parameter(2, 2, 2);
 
 		this.player1.Init(playerPalameter1);

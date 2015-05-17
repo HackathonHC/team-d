@@ -39,6 +39,6 @@ public class TurnManager
 	public void StartTurn()
 	{
 //		UIAnimationManager.Instance.PlayAnimation(UIAnimationManager.Type.BattleStart);
-//		UIAnimationManager.Instance.PlayTurnAnimation(this.CurrentPlayer);
+		UIAnimationManager.Instance.PlayTurnAnimation(this.CurrentPlayer);
 	}
 }

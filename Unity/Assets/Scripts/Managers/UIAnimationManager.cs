@@ -19,12 +19,15 @@ public class UIAnimationManager
 	}
 
 	private string BATTLE_START_PATH = "Prefabs/BattleStart";
+	private string TURN_START_PATH = "Prefabs/TurnStart";
 	private GameObject battleStartPrefab;
+	private GameObject turnStartPrefab;
 	private GameObject l5Object;
 
 	public void Init()
 	{
 		this.battleStartPrefab = Resources.Load<GameObject>(BATTLE_START_PATH);
+		this.turnStartPrefab = Resources.Load<GameObject>(TURN_START_PATH);
 		this.l5Object = GameObject.Find("L5");
 	}
 
@@ -52,14 +55,14 @@ public class UIAnimationManager
 	{
 		var deferred = new Promises.Deferred();
 		// Create Object
-		var turnStart = CreateGameObject(this.battleStartPrefab);
+		var turnStart = CreateGameObject(this.turnStartPrefab);
 		var turnSprite = turnStart.transform.Find("Sprite").GetComponent<UISprite>();
 		turnSprite.spriteName = string.Format("{0}p", currentPlayer.playerId);
 		// Tween
 		var animation = turnStart.GetComponent<AnimationComponent>();
-		animation.SlideIn(1f, new Vector3(800f, 0f), new Vector3(0f, 0f)).Done(() =>
+		animation.SlideIn(0.5f, new Vector3(1000f, 0f), new Vector3(0f, 0f)).Done(() =>
 		                                                                       {
-			animation.SlideOut(1f, new Vector3(0f, 0f), new Vector3(-800f, 0f)).Done(() =>
+			animation.SlideOut(0.5f, new Vector3(0f, 0f), new Vector3(-1000f, 0f)).Done(() =>
 			                                                                         {
 				deferred.Resolve();
 			});

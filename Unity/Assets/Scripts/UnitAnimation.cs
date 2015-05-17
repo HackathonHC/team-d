@@ -82,11 +82,13 @@ public class UnitAnimation : MonoBehaviour
 	{
 		if (player.playerId == 1)
 		{
-			return new Vector3(-216f, 0f);
+//			return new Vector3(-216f, 0f);
+			return new Vector3(-240f, 0f);
 		}
 		else
 		{
-			return new Vector3(236f, 0f);
+//			return new Vector3(236f, 0f);
+			return new Vector3(240f, 0f);
 		}
 	}
 }
