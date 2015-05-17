@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 		UIAnimationManager.Instance.Init();
 		TurnManager.Instance.Init();
 
+		// GameStart
 		TurnManager.Instance.StartTurn();
+		SoundManager.Instance.PlayBGM("game_bgm");
 	}
 }
