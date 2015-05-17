@@ -22,9 +22,14 @@ public class Unit
 
 	public int hp;
 	public Master master;
+	public UnitAnimation unitAnimation;
+	public Player player;
 
 	public Unit(int id)
 	{
+		this.player = null;
+		this.unitAnimation = null;
+
 		// Load
 		var parameters = UnitData.GetData(id);
 

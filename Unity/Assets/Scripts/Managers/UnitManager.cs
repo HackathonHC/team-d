@@ -22,10 +22,15 @@ public class UnitManager
 		foreach (var player in PlayerManager.Instance.PlayerList)
 		{
 			var unit = new Unit(player.unitId);
+
+			// Set Manager
 			if (!this.unitMap.ContainsKey(player.playerId))
 			{
 				this.unitMap.Add(player.playerId, unit);
 			}
+
+			// Set Reference
+			player.unit = unit;
 		}
 	}
 

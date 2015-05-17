@@ -13,7 +13,7 @@ public class AnimationManager
 		}
 	}
 
-	private string ANIMATION_PREFAB_PATH = "Animations/{0}/Prefab/{1}";
+	private string ANIMATION_PREFAB_PATH = "Animations/character_{0}/Prefab/character_{1}";
 
 	private Transform viewTransform;
 	private Dictionary<int, GameObject> animationPrefabMap;

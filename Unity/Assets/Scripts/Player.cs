@@ -8,6 +8,7 @@ public class Player
 	public int stageId;
 	public PanelManager.PlayerStage playerStage;
 	public UnitAnimation unitAnimation;
+	public Unit unit;
 
 	public struct Parameter
 	{
@@ -29,5 +30,6 @@ public class Player
 		this.unitId = parameter.unitId;
 		this.stageId = parameter.stageId;
 		this.unitAnimation = null;
+		this.unit = null;
 	}
 }
