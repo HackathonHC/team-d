@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UnitAnimation : MonoBehaviour 
 {
-	private Player player;
+	public Player player;
 	private GameObject containerObject;
 	private GameObject animationObject;
 	private State status;

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 		CursolManager.Instance.Init();
 		UIAnimationManager.Instance.Init();
 		TurnManager.Instance.Init();
+		DamageNumberManager.Instance.Init();
 
 		// GameStart
 		TurnManager.Instance.StartTurn();
