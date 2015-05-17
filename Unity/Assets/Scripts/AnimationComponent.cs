@@ -89,6 +89,24 @@ public class AnimationComponent : MonoBehaviour
 		               );
 		return deferred;
 	}
+
+	public Promises.Deferred HpBar(float from, float to)
+	{
+		var deferred = new Promises.Deferred();
+		var time = 0.3f;
+		iTween.ValueTo(this.gameObject, iTween.Hash(
+			"from", from, 
+			"to", to, 
+			"time", time,
+			"easetype", "easeOutSine",
+			"onupdate", "OnBarUpdate",
+			"oncomplete", "OnTweenComplete",
+			"islocal", true,
+			"oncompleteparams", deferred
+			)
+		               );
+		return deferred;
+	}
 	
     public void OnFadeUpdate(float value)
 	{
@@ -96,6 +114,15 @@ public class AnimationComponent : MonoBehaviour
 		if (uiPanel != null)
 		{
 			uiPanel.alpha = value;
+		}
+	}
+
+    public void OnBarUpdate(float value)
+	{
+		var uiProgressBar = GetComponent<UIProgressBar>();
+		if (uiProgressBar != null)
+		{
+			uiProgressBar.value = value;
 		}
 	}
     

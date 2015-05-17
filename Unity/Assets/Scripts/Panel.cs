@@ -77,6 +77,22 @@ public class Panel
 	{
 		sourcePlayer.unitAnimation.PlayOnce(UnitAnimation.State.attack).Done(()=>
 		{
+			// Compute damage
+			var damagePoint = sourcePlayer.unit.master.attack;
+
+			// Compute Bar From
+			var from = targetPlayer.unit.ComputeHpRate(targetPlayer.unit.hp);
+
+			// Reduce target unit's Hp
+			targetPlayer.unit.hp -= damagePoint;
+
+			// Compute Bar To
+			var to = targetPlayer.unit.ComputeHpRate(targetPlayer.unit.hp);
+
+			// Animation Hp Bar
+			targetPlayer.unit.hpBarAnimation.HpBar(from, to);
+
+			// Damage Animation
 			targetPlayer.unitAnimation.PlayOnce(UnitAnimation.State.damage);
 			this.deferred.Resolve();
 		});
@@ -86,6 +102,22 @@ public class Panel
 	{
 		sourcePlayer.unitAnimation.PlayOnce(UnitAnimation.State.special).Done(()=>
 		{
+			// Compute damage
+			var damagePoint = sourcePlayer.unit.master.attack * 2;
+
+			// Compute Bar From
+			var from = targetPlayer.unit.ComputeHpRate(targetPlayer.unit.hp);
+
+			// Reduce target unit's Hp
+			targetPlayer.unit.hp -= damagePoint;
+
+			// Compute Bar To
+			var to = targetPlayer.unit.ComputeHpRate(targetPlayer.unit.hp);
+
+			// Animation Hp Bar
+			targetPlayer.unit.hpBarAnimation.HpBar(from, to);
+
+			// Damage Animation
 			targetPlayer.unitAnimation.PlayOnce(UnitAnimation.State.damage);
 			this.deferred.Resolve();
 		});
@@ -93,6 +125,22 @@ public class Panel
 
 	private void Damage(Player sourcePlayer, Player targetPlayer)
 	{
+		// Compute damage
+		var damagePoint = 150;
+
+		// Compute Bar From
+		var from = targetPlayer.unit.ComputeHpRate(targetPlayer.unit.hp);
+
+		// Reduce target unit's Hp
+		targetPlayer.unit.hp -= damagePoint;
+
+		// Compute Bar To
+		var to = targetPlayer.unit.ComputeHpRate(targetPlayer.unit.hp);
+
+		// Animation Hp Bar
+		targetPlayer.unit.hpBarAnimation.HpBar(from, to);
+
+		// Damage Animation
 		sourcePlayer.unitAnimation.PlayOnce(UnitAnimation.State.damage).Done(()=>
 		{
 			this.deferred.Resolve();
@@ -101,6 +149,22 @@ public class Panel
 
 	private void Dead(Player sourcePlayer, Player targetPlayer)
 	{
+		// Compute damage
+		var damagePoint = 9999;
+
+		// Compute Bar From
+		var from = targetPlayer.unit.ComputeHpRate(targetPlayer.unit.hp);
+
+		// Reduce target unit's Hp
+		targetPlayer.unit.hp -= damagePoint;
+
+		// Compute Bar To
+		var to = targetPlayer.unit.ComputeHpRate(targetPlayer.unit.hp);
+
+		// Animation Hp Bar
+		targetPlayer.unit.hpBarAnimation.HpBar(from, to);
+
+		// Damage Animation
 		sourcePlayer.unitAnimation.PlayOnce(UnitAnimation.State.dead).Done(()=>
 		{
 			this.deferred.Resolve();
@@ -109,15 +173,31 @@ public class Panel
 
 	private void Recover(Player sourcePlayer, Player targetPlayer)
 	{
+		// Compute damage
+		var damagePoint = 300;
+		
+		// Compute Bar From
+		var from = targetPlayer.unit.ComputeHpRate(targetPlayer.unit.hp);
+		
+		// Add target unit's Hp
+		targetPlayer.unit.hp += damagePoint;
+		
+		// Compute Bar To
+		var to = targetPlayer.unit.ComputeHpRate(targetPlayer.unit.hp);
+		
+		// Animation Hp Bar
+		targetPlayer.unit.hpBarAnimation.HpBar(from, to);
+		
+		// Recover Animation
 		sourcePlayer.unitAnimation.PlayOnce(UnitAnimation.State.recover).Done(()=>
-		                                                                      {
-
+		{
 			this.deferred.Resolve();
 		});
 	}
 
 	private void Rest(Player sourcePlayer, Player targetPlayer)
 	{
+		// TODO
 		sourcePlayer.unitAnimation.Play(UnitAnimation.State.rest);
 		this.deferred.Resolve();
 	}

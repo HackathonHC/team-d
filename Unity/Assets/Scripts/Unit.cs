@@ -24,6 +24,8 @@ public class Unit
 	public Master master;
 	public UnitAnimation unitAnimation;
 	public Player player;
+	public UIProgressBar hpBar;
+	public AnimationComponent hpBarAnimation;
 
 	public Unit(int id)
 	{
@@ -38,6 +40,16 @@ public class Unit
 
 		// Set Game Params
 		this.hp = this.master.maxHp;
+
+		// Set Hpbar Reference
+		var hpBarName = string.Format("{0}pHpFrame", id);
+		this.hpBar = GameObject.Find("L4").transform.Find(hpBarName).GetComponent<UIProgressBar>();
+		this.hpBarAnimation = this.hpBar.gameObject.AddMissingComponent<AnimationComponent>();
+	}
+
+	public float ComputeHpRate(int hp)
+	{
+		return (float)hp / (float)this.master.maxHp;
 	}
 
 	private Master CreateMaster(Dictionary<string, object> parameters) 
