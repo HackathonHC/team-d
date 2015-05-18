@@ -42,11 +42,6 @@ public class Unit
 
 		// Set Game Params
 		this.hp = this.master.maxHp;
-
-		// Set Hpbar Reference
-		var hpBarName = string.Format("{0}pHpFrame", id);
-		this.hpBar = GameObject.Find("L4").transform.Find(hpBarName).GetComponent<UIProgressBar>();
-		this.hpBarAnimation = this.hpBar.gameObject.AddMissingComponent<AnimationComponent>();
 	}
 
 	public bool IsDead
