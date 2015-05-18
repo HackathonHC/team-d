@@ -41,6 +41,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 1fe238b25f17c44608704c007568bce5, type: 2}
   mSprites:
+  - name: 0
+    x: 785
+    y: 1339
+    width: 51
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
   - name: 1
     x: 981
     y: 1623
@@ -56,7 +69,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: 1p
     x: 0
-    y: 1896
+    y: 1743
     width: 960
     height: 152
     borderLeft: 0
@@ -95,7 +108,7 @@ MonoBehaviour:
     paddingBottom: 2
   - name: 1p_select_
     x: 961
-    y: 1962
+    y: 1809
     width: 50
     height: 86
     borderLeft: 0
@@ -120,8 +133,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 3
   - name: 2
-    x: 961
-    y: 1902
+    x: 681
+    y: 1339
     width: 51
     height: 59
     borderLeft: 0
@@ -134,7 +147,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: 2p
     x: 0
-    y: 1743
+    y: 1896
     width: 960
     height: 152
     borderLeft: 0
@@ -173,7 +186,7 @@ MonoBehaviour:
     paddingBottom: 2
   - name: 2p_select_
     x: 961
-    y: 1809
+    y: 1962
     width: 50
     height: 86
     borderLeft: 0
@@ -198,8 +211,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 3
   - name: 3
-    x: 961
-    y: 1749
+    x: 629
+    y: 1339
     width: 51
     height: 59
     borderLeft: 0
@@ -211,8 +224,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: 4
-    x: 929
-    y: 1683
+    x: 924
+    y: 1441
     width: 51
     height: 59
     borderLeft: 0
@@ -224,8 +237,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: 5
-    x: 929
-    y: 1623
+    x: 872
+    y: 1441
     width: 51
     height: 59
     borderLeft: 0
@@ -237,7 +250,7 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: 6
-    x: 508
+    x: 820
     y: 1441
     width: 51
     height: 59
@@ -250,7 +263,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: 8
-    x: 560
+    x: 768
     y: 1441
     width: 51
     height: 59
@@ -263,8 +276,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: 9
-    x: 681
-    y: 1339
+    x: 716
+    y: 1441
     width: 51
     height: 59
     borderLeft: 0
@@ -314,6 +327,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: h_0
+    x: 733
+    y: 1339
+    width: 51
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
   - name: h_1
     x: 981
     y: 1683
@@ -328,84 +354,6 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: h_2
-    x: 629
-    y: 1339
-    width: 51
-    height: 59
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 1
-    paddingTop: 1
-    paddingBottom: 0
-  - name: h_3
-    x: 924
-    y: 1441
-    width: 51
-    height: 59
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 1
-    paddingTop: 1
-    paddingBottom: 0
-  - name: h_4
-    x: 872
-    y: 1441
-    width: 51
-    height: 59
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 1
-    paddingTop: 1
-    paddingBottom: 0
-  - name: h_5
-    x: 820
-    y: 1441
-    width: 51
-    height: 59
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 1
-    paddingTop: 1
-    paddingBottom: 0
-  - name: h_6
-    x: 768
-    y: 1441
-    width: 51
-    height: 59
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 1
-    paddingTop: 1
-    paddingBottom: 0
-  - name: h_7
-    x: 716
-    y: 1441
-    width: 51
-    height: 59
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 1
-    paddingTop: 1
-    paddingBottom: 0
-  - name: h_8
     x: 664
     y: 1441
     width: 51
@@ -418,9 +366,87 @@ MonoBehaviour:
     paddingRight: 1
     paddingTop: 1
     paddingBottom: 0
-  - name: h_9
+  - name: h_3
     x: 612
     y: 1441
+    width: 51
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
+  - name: h_4
+    x: 560
+    y: 1441
+    width: 51
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
+  - name: h_5
+    x: 508
+    y: 1441
+    width: 51
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
+  - name: h_6
+    x: 929
+    y: 1623
+    width: 51
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
+  - name: h_7
+    x: 929
+    y: 1683
+    width: 51
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
+  - name: h_8
+    x: 961
+    y: 1749
+    width: 51
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
+  - name: h_9
+    x: 961
+    y: 1902
     width: 51
     height: 59
     borderLeft: 0
@@ -445,7 +471,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: panel_damage
-    x: 820
+    x: 352
     y: 1211
     width: 116
     height: 116
@@ -458,7 +484,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: panel_dead
-    x: 703
+    x: 469
     y: 1211
     width: 116
     height: 116
@@ -484,7 +510,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: panel_random
-    x: 469
+    x: 820
     y: 1211
     width: 116
     height: 116
@@ -497,7 +523,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: panel_recover
-    x: 352
+    x: 703
     y: 1211
     width: 116
     height: 116
@@ -510,7 +536,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: panel_rest
-    x: 235
+    x: 118
     y: 1211
     width: 116
     height: 116
@@ -523,7 +549,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: panel_special
-    x: 118
+    x: 235
     y: 1211
     width: 116
     height: 116
