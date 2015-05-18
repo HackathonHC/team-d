@@ -134,7 +134,13 @@ public class CharacterSelect : MonoBehaviour {
 		} else if (this.selectPlayer == 2) {
 			this.player2Unit = this.unit;
 			this.selectPlayer++;
+			// Hide Character select
 			this.gameObject.SetActive(false);
+			// Player Parameter
+			GameManager.Instance.playerParameter1.unitId = this.player1Unit.master.id;
+			GameManager.Instance.playerParameter2.unitId = this.player2Unit.master.id;
+			// Show Stage Select
+			GameObject.Find("L5").transform.Find("StageSelect").gameObject.SetActive(true);
 		}
 	}
 }

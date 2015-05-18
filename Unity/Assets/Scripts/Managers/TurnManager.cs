@@ -22,12 +22,14 @@ public class TurnManager
 	private int currentPlayerId;
 	private Promises.Deferred deferred;
 	private UIButton diceButton;
+	private GameObject timerCallbackObject;
 
 	public void Init()
 	{
 		var senkouPlayer = PlayerManager.Instance.Player1;
 		this.currentPlayerId = senkouPlayer.playerId;
 		this.diceButton = GameObject.Find("L2").transform.Find("DiceButton").GetComponent<UIButton>();
+		this.timerCallbackObject = new GameObject();
 	}
 
 	public Player CurrentPlayer
@@ -114,11 +116,20 @@ public class TurnManager
 		{
 			this.currentPlayerId = 1;
 		}
-		StartTurn();
+
+		var timerCallback = this.timerCallbackObject.AddMissingComponent<TimerCallback>();
+		timerCallback.Reset();
+		timerCallback.time = 0.7f;
+		timerCallback.oneShot = true;
+		timerCallback.SetCustomCallback(() =>
+		{
+			StartTurn();
+		});
 	}
 
 	public void OnGameSet()
 	{
+		DiceManager.Instance.state = DiceManager.State.init;
 		if (PlayerManager.Instance.Player1.unit.IsDead)
 		{
 			Win(PlayerManager.Instance.Player2);
@@ -127,7 +138,10 @@ public class TurnManager
 		{
 			Win(PlayerManager.Instance.Player1);
 		}
-		Debug.LogError("error OnGameSet");
+		else
+		{
+			Debug.LogError("error OnGameSet");
+		}
 	}
 
 	public void Win(Player winner)

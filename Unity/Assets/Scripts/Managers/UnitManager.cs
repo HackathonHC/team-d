@@ -22,6 +22,11 @@ public class UnitManager
 		foreach (var player in PlayerManager.Instance.PlayerList)
 		{
 			var unit = new Unit(player.unitId);
+			
+			// Set Hpbar Reference
+			var hpBarName = string.Format("{0}pHpFrame", player.playerId);
+			unit.hpBar = GameObject.Find("L4").transform.Find(hpBarName).GetComponent<UIProgressBar>();
+			unit.hpBarAnimation = unit.hpBar.gameObject.AddMissingComponent<AnimationComponent>();
 
 			// Set Manager
 			if (!this.unitMap.ContainsKey(player.playerId))
