@@ -193,6 +193,12 @@ public class Panel
 		
 		// Add target unit's Hp
 		sourcePlayer.unit.hp += damagePoint;
+
+		// Check Upper
+		if (sourcePlayer.unit.hp > sourcePlayer.unit.master.maxHp)
+		{
+			sourcePlayer.unit.hp = sourcePlayer.unit.master.maxHp;
+		}
 		
 		// Compute Bar To
 		var to = sourcePlayer.unit.ComputeHpRate(sourcePlayer.unit.hp);
