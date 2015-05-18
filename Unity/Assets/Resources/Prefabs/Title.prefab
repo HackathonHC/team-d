@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 463004}
   - 114: {fileID: 11485092}
-  - 114: {fileID: 11466506}
   - 61: {fileID: 6186428}
   m_Layer: 8
   m_Name: StartButton
@@ -273,17 +272,6 @@ MonoBehaviour:
   callWhenFinished: 
   from: 1
   to: .5
---- !u!114 &11466506
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afdf50a67f9344f219c2776ec49b9fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11473344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,8 +308,8 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
-  - mTarget: {fileID: 11466506}
-    mMethodName: OnButtonClick
+  - mTarget: {fileID: 11473344}
+    mMethodName: OnStartClick
     mParameters: []
     oneShot: 0
 --- !u!1001 &100100000
