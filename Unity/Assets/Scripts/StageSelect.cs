@@ -54,6 +54,12 @@ public class StageSelect : MonoBehaviour {
 
 	public void OnSubmitClick()
 	{
+		// Hide Stage select
 		this.gameObject.SetActive(false);
+		// Player Parameter
+		GameManager.Instance.playerParameter1.stageId = this.player1Board;
+		GameManager.Instance.playerParameter2.stageId = this.player2Board;
+		// Show Stage Select
+		GameManager.Instance.GameStart();
 	}
 }
