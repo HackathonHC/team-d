@@ -49,6 +49,14 @@ public class Unit
 		this.hpBarAnimation = this.hpBar.gameObject.AddMissingComponent<AnimationComponent>();
 	}
 
+	public bool IsDead
+	{
+		get
+		{
+			return this.hp <= 0;
+		}
+	}
+
 	public float ComputeHpRate(int hp)
 	{
 		return (float)hp / (float)this.master.maxHp;

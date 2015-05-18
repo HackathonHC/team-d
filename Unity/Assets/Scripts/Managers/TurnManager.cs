@@ -90,13 +90,22 @@ public class TurnManager
 				
 			currentPanel.Execute(sourcePlayer, targetPlayer).Done(()=>
 			{
-				OnPanelEffectEnd();
+				if (sourcePlayer.unit.IsDead || targetPlayer.unit.IsDead)
+				{
+					OnGameSet();
+				}
+				else
+				{
+					OnPanelEffectEnd();
+				}
 			});
 		});
 	}
 
 	public void OnPanelEffectEnd()
 	{
+		DiceManager.Instance.state = DiceManager.State.init;
+
 		if (this.currentPlayerId == 1)
 		{
 			this.currentPlayerId = 2;
@@ -106,5 +115,32 @@ public class TurnManager
 			this.currentPlayerId = 1;
 		}
 		StartTurn();
+	}
+
+	public void OnGameSet()
+	{
+		if (PlayerManager.Instance.Player1.unit.IsDead)
+		{
+			Win(PlayerManager.Instance.Player2);
+		}
+		else if (PlayerManager.Instance.Player2.unit.IsDead)
+		{
+			Win(PlayerManager.Instance.Player1);
+		}
+		Debug.LogError("error OnGameSet");
+	}
+
+	public void Win(Player winner)
+	{
+		var winPrefab = Resources.Load<GameObject>("Prefabs/Win");
+		var l5Object = GameObject.Find("L5");
+
+		var winObject = NGUITools.AddChild(l5Object, winPrefab);
+		var winSprite = winObject.GetComponent<UISprite>();
+
+		// set sprite
+		winSprite.spriteName = string.Format("{0}p_win", winner.playerId);
+
+		// TODO game end
 	}
 }
