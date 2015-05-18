@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 	{
 		this.playerParameter1 = new Player.Parameter(1, 1, 1); // Player Id, Unit Id, Stage Id
 		this.playerParameter2 = new Player.Parameter(2, 1, 1);
+		SoundManager.Instance.PlayBGM("select_bgm");
 	}
 
 	public void GameStart()
